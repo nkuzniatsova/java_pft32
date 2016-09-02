@@ -1,4 +1,4 @@
-package ptf32.speltuin;
+package Lesson1;
 
 /**
  * Created by Natallia on 31-8-2016.
