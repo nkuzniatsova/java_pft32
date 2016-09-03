@@ -3,7 +3,7 @@ package Lesson1;
 /**
  * Created by Natallia on 2-9-2016.
  */
-public class Lesson1Task2 {
+public class Lesson1Task2function {
 
 
   public static void main(String[] args) {
@@ -17,7 +17,6 @@ public class Lesson1Task2 {
     p2.y = 5;
 
     System.out.println("Расстояние между точками с координатами (" + p1.x + "," + p1.y + ") и (" + p2.x + "," + p2.y + ") = " + distance(p1,p2));
-
   }
 
     public static double distance(Point p1,Point p2) {
