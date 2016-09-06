@@ -7,15 +7,11 @@ public class Lesson1Task2Method {
 
 public static void main(String[] args) {
 
-  Point p1 = new Point();
-  p1.x = 1;
-  p1.y = 5;
+  PointWithMethod p1 = new PointWithMethod(1.0, 25.0);
 
-  Point p2 = new Point();
-  p2.x = 3;
-  p2.y = 5;
+  PointWithMethod p2 = new PointWithMethod(3.0, 5.0);
 
-  System.out.println("Расстояние между точками с координатами (" + p1.x + "," + p1.y + ") и (" + p2.x + "," + p2.y + ") = " + PointWithMethod.distance(p1,p2));
+  System.out.println("Расстояние между точками с координатами (" + p1.x + "," + p1.y + ") и (" + p2.x + "," + p2.y + ") = " + p1.distance(p2));
 }
 
 }
