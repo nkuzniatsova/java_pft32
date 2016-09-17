@@ -1,4 +1,4 @@
-package ptf32.speltuin;
+package pft32.speltuin;
 
 import Lesson1.PointWithMethod;
 import org.testng.Assert;

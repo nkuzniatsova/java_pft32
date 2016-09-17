@@ -1,4 +1,4 @@
-package ptf32.speltuin;
+package pft32.speltuin;
 
 public class MyFirstProgram {
 
