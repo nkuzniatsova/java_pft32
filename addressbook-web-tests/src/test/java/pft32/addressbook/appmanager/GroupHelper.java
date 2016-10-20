@@ -40,4 +40,12 @@ public class GroupHelper extends HelperBase {
             click(By.name("selected[]"));
         }
     }
+
+    public void initGroepModification() {
+        click(By.name("edit"));
+    }
+
+    public void submitGroepModification() {
+        click(By.name("update"));
+    }
 }
