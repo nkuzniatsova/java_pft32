@@ -1,4 +1,4 @@
-package pft32.addressbook;
+package pft32.addressbook.model;
 
 public class GroupData {
     private final String name;

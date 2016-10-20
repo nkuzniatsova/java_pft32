@@ -1,4 +1,4 @@
-package pft32.addressbook;
+package pft32.addressbook.model;
 
 public class ContactData {
     private final String firstName;
