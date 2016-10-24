@@ -1,8 +1,11 @@
 package pft32.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import pft32.addressbook.model.ContactData;
 
 /**
@@ -14,13 +17,19 @@ public class ContactHelper extends HelperBase {
         super(wd);
     }
 
-    public void fillContactForm(ContactData contactData) {
+    public void fillContactForm(ContactData contactData, boolean creation) {
         type(By.name("firstname"),contactData.getFirstName());
         type(By.name("lastname"),contactData.getLastName());
         type(By.name("company"),contactData.getCompanyName());
         type(By.name("address"),contactData.getContactAddress());
         type(By.name("mobile"),contactData.getContactMob());
         type(By.name("email"),contactData.getContactEmail());
+
+        if (creation) {
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
+        }
     }
 
     public void submitContactCreation() {
@@ -41,10 +50,6 @@ public class ContactHelper extends HelperBase {
 
     public void selectContact() {
         click(By.xpath("//div/div[4]/form[2]/table/tbody/tr[2]/td[1]/input"));
-    }
-
-    public void gotoContactPage() {
-        click(By.linkText("home"));
     }
 
     public void deleteContact() {
