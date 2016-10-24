@@ -11,7 +11,7 @@ import pft32.addressbook.appmanager.ApplicationManager;
 public class TestBase {
 
 
-    protected final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
+    protected final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
 
     @BeforeMethod
     public void setUp() throws Exception {
