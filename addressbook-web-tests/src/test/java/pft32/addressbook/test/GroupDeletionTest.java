@@ -1,7 +1,10 @@
 package pft32.addressbook.test;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pft32.addressbook.model.GroupData;
+
+import java.util.List;
 
 public class GroupDeletionTest extends TestBase {
 
@@ -11,10 +14,12 @@ public class GroupDeletionTest extends TestBase {
         app.getNavigationHelper().gotoGroupPage();
         if (! app.getGroupHelper().isThereAGroup())
             app.getGroupHelper().createGroup(new GroupData("test1", null, null));
-        app.getGroupHelper().selectGroup();
+        List<GroupData> before = app.getGroupHelper().getGroupList();
+        app.getGroupHelper().selectGroup(before.size()-1);
         app.getGroupHelper().deleteSelectedGroups();
         app.getGroupHelper().returnToGroupPage();
-
+        List<GroupData> after = app.getGroupHelper().getGroupList();
+        Assert.assertEquals(after.size(), before.size() - 1);
     }
 
 }
