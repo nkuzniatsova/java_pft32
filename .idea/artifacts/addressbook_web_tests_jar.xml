@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact name="addressbook-web-tests:jar">
+    <output-path>$PROJECT_DIR$</output-path>
+    <root id="root">
+      <element id="archive" name="demoJavaSelenium.jar" />
+    </root>
+  </artifact>
+</component>
