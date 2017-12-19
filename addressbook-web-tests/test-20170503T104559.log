@@ -1,0 +1,8 @@
+9496 [main] INFO  p.a.test.GroupCreationTests - Start test testGroupCreationwith parameters [GroupData{id='0', name='test 0'}]
+19255 [main] INFO  p.a.test.GroupCreationTests - Stop test testGroupCreation
+19256 [main] INFO  p.a.test.GroupCreationTests - Start test testGroupCreationwith parameters [GroupData{id='0', name='test 1'}]
+28278 [main] INFO  p.a.test.GroupCreationTests - Stop test testGroupCreation
+28278 [main] INFO  p.a.test.GroupCreationTests - Start test testGroupCreationwith parameters [GroupData{id='0', name='test 2'}]
+38332 [main] INFO  p.a.test.GroupCreationTests - Stop test testGroupCreation
+38333 [main] INFO  p.a.test.GroupCreationTests - Start test testGroupCreationwith parameters [GroupData{id='0', name='test 3'}]
+48779 [main] INFO  p.a.test.GroupCreationTests - Stop test testGroupCreation

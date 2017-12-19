@@ -1,9 +1,7 @@
 package pft32.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import pft32.addressbook.model.ContactData;
@@ -24,6 +22,7 @@ public class ContactHelper extends HelperBase {
         type(By.name("address"),contactData.getContactAddress());
         type(By.name("mobile"),contactData.getContactMob());
         type(By.name("email"),contactData.getContactEmail());
+        attach(By.name("photo"), contactData.getPhoto());
 
         if (creation) {
             new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());

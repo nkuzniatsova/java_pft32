@@ -1,5 +1,7 @@
 package pft32.addressbook.model;
 
+import java.io.File;
+
 public class ContactData {
     private final String firstName;
     private final String lastName;
@@ -8,8 +10,9 @@ public class ContactData {
     private final String contactMob;
     private final String contactEmail;
     private String group;
+    private File photo;
 
-    public ContactData(String firstName, String lastName, String companyName, String contactAddress, String contactMob, String contactEmail, String group) {
+    public ContactData(String firstName, String lastName, String companyName, String contactAddress, String contactMob, String contactEmail, String group, File photo) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.companyName = companyName;
@@ -17,6 +20,7 @@ public class ContactData {
         this.contactMob = contactMob;
         this.contactEmail = contactEmail;
         this.group = group;
+        this.photo = photo;
     }
 
     public String getFirstName() {
@@ -45,5 +49,17 @@ public class ContactData {
 
     public String getGroup() {
         return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    public File getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(File photo) {
+        this.photo = photo;
     }
 }

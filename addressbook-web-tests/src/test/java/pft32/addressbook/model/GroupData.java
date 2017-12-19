@@ -1,9 +1,18 @@
 package pft32.addressbook.model;
 
+import com.google.gson.annotations.Expose;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
+
+@XStreamAlias("group")
 public class GroupData {
+    @XStreamOmitField
     private int id;
+    @Expose
     private final String name;
+    @Expose
     private final String header;
+    @Expose
     private final String footer;
 
     public void setId(int id) {
@@ -11,7 +20,7 @@ public class GroupData {
     }
 
     public GroupData(String name, String header, String footer) {
-        this.id = 0;
+        this.id = Integer.MAX_VALUE;
         this.name = name;
         this.header = header;
         this.footer = footer;
@@ -55,15 +64,16 @@ public class GroupData {
 
         GroupData groupData = (GroupData) o;
 
-        if (id != groupData.id) return false;
-        return name != null ? name.equals(groupData.name) : groupData.name == null;
-
+        if (name != null ? !name.equals(groupData.name) : groupData.name != null) return false;
+        if (header != null ? !header.equals(groupData.header) : groupData.header != null) return false;
+        return footer != null ? footer.equals(groupData.footer) : groupData.footer == null;
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (header != null ? header.hashCode() : 0);
+        result = 31 * result + (footer != null ? footer.hashCode() : 0);
         return result;
     }
 }

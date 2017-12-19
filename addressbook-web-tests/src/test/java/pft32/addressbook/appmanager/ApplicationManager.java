@@ -8,13 +8,18 @@ import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Objects;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Natallia on 20/10/16.
  */
 public class ApplicationManager {
+    private final Properties properties;
     private String browser;
     WebDriver wd;
 
@@ -25,9 +30,10 @@ public class ApplicationManager {
 
     public ApplicationManager(String browser) {
         this.browser = browser;
+        properties = new Properties();
     }
 
-    public void init() {
+    public void init() throws IOException {
         //wd = new FirefoxDriver();
         //Now you can Initialize marionette driver to launch firefox
         /*DesiredCapabilities capabilities = DesiredCapabilities.firefox();
@@ -35,8 +41,10 @@ public class ApplicationManager {
 
         //WebDriver wd = new FirefoxDriver(capabilities); //for selenium 3 use new FirefoxDriver(capabilities);
         // WebDriver wd;
-
+        String target = System.getProperty("target", "local");
+        properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
         if (Objects.equals(browser, BrowserType.FIREFOX)){
+            System.setProperty("webdriver.gecko.driver", "C:\\Tools\\SeleniumDrivers\\geckodriver-v0.16.0-win64\\geckodriver.exe");
             DesiredCapabilities capabilities = DesiredCapabilities.firefox();
             capabilities.setCapability("marionette", true);
             wd = new FirefoxDriver(capabilities);
@@ -58,12 +66,12 @@ public class ApplicationManager {
         }
 
         wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        wd.get("http://localhost/addressbook/");
+        wd.get(properties.getProperty("web.baseUrl", "http://localhost/addressbook/"));
         groupHelper = new GroupHelper(wd);
         contactHelper = new ContactHelper(wd);
         navigationHelper = new NavigationHelper(wd);
         sessionHelper = new SessionHelper(wd);
-        sessionHelper.login("admin", "secret");
+        sessionHelper.login(properties.getProperty("web.adminLogin", "admin"), properties.getProperty("web.adminPassword", "secret"));
     }
 
 
@@ -72,7 +80,7 @@ public class ApplicationManager {
         wd.quit();
     }
 
-    public GroupHelper getGroupHelper() {
+    public GroupHelper group() {
         return groupHelper;
     }
 
@@ -80,7 +88,7 @@ public class ApplicationManager {
         return contactHelper;
     }
 
-    public NavigationHelper getNavigationHelper() {
+    public NavigationHelper goTo() {
         return navigationHelper;
     }
 }
