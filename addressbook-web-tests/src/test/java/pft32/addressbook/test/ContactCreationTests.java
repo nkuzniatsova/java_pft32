@@ -12,7 +12,7 @@ public class ContactCreationTests extends TestBase {
 
         app.goTo().gotoHomePage();
         File photo = new File("src/test/resources/fotoNata.png");
-        app.getContactHelper().createContact(new ContactData("First11", "Contact11", "JavaForTesters", "Teststreet 100\nAmsterdam", "0612345678", "test@test.nl", "test11", photo));
+        app.getContactHelper().createContact(new ContactData("First11", "Contact11", "JavaSeleniumTests", "Teststreet 100\nAmsterdam", "0612345678", "test@test.nl", "test11", photo));
     }
 
     /*@Test

@@ -22,7 +22,7 @@ public class GroupStepDefenitions {
 
     @Before
     public void init() throws IOException {
-        app = new ApplicationManager(System.getProperty("browser", BrowserType.FIREFOX));
+        app = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
         app.init();
     }
 
